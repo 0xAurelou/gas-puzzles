@@ -8,12 +8,12 @@ contract Require {
 
     // Optimize this function
     function purchaseToken() external payable {
+        uint256 time = block.timestamp;
         require(
-            msg.value == 0.1 ether &&
-                block.timestamp > lastPurchaseTime + COOLDOWN,
-            'cannot purchase'
+            msg.value == 0.1 ether
         );
-        lastPurchaseTime = block.timestamp;
+        require(time > lastPurchaseTime + 1 minutes);
+        lastPurchaseTime = time;
         // mint the user a token
     }
 }

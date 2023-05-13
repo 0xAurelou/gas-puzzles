@@ -24,7 +24,7 @@ describe('Require', async function () {
 
     beforeEach(async () => {
         const ContractFactory = await ethers.getContractFactory(
-            'OptimizedRequire'
+            'Require'
         );
         instance = await ContractFactory.deploy();
 

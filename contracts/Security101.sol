@@ -5,11 +5,14 @@ contract Security101 {
     mapping(address => uint256) balances;
 
     function deposit() external payable {
-        balances[msg.sender] += msg.value;
+      unchecked {
+           balances[msg.sender] += msg.value; 
+        }
     }
 
     function withdraw(uint256 amount) external {
-        require(balances[msg.sender] >= amount, 'insufficient funds');
+      uint256 balance = balances[msg.sender];
+        require(balance >= amount, 'insufficient funds');
         (bool ok, ) = msg.sender.call{value: amount}('');
         require(ok, 'transfer failed');
         unchecked {
