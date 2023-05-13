@@ -12,12 +12,13 @@ contract ArraySum {
     }
 
     // optimize this function
-    function getArraySum() external view returns (uint256) {
-        uint256 sum;
-        for (uint256 i = 0; i < array.length; i++) {
+    function getArraySum() external view returns (uint256 sum) {
+        uint256 length = array.length;
+        for (uint256 i; i < length; ) {
             sum += array[i];
+            unchecked {
+              ++i;
+            }
         }
-
-        return sum;
     }
 }

@@ -24,7 +24,7 @@ describe('ArraySum', async function () {
 
     beforeEach(async () => {
         const ContractFactory = await ethers.getContractFactory(
-            'OptimizedArraySum'
+            'ArraySum'
         );
         instance = await ContractFactory.deploy();
 
