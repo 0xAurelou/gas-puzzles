@@ -27,7 +27,7 @@ describe('ArraySort', async function () {
 
     beforeEach(async () => {
         const ContractFactory = await ethers.getContractFactory(
-            'OptimizedArraySort'
+            'ArraySort'
         );
         instance = await ContractFactory.deploy();
 
